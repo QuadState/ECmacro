@@ -1,0 +1,7 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+"C1, C2",R_SMD_1608_reflow,2,0.1u,C14663
+J1,Connector_USB_C_Receptacle_SMD_reflow4,1,USB_C_Receptacle_USB2.0_14P,C963216
+"R1, R2",R_SMD_1608_reflow,2,2MΩ,C22976
+"R3, R4",R_SMD_1608_reflow,2,5.1kΩ,C23186
+"R5, R6",R_SMD_1608_reflow,2,10kΩ,C25804
+U1,IC_SMD_MSOP-10_reflow,1,CH552E,C967938
