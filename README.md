@@ -1,4 +1,4 @@
-# ECmiacro02
+# ECmacro02
 
 A compact 2-key USB macro pad using electrostatic capacitive switches (Topre/NIZ style).  
 Perfect for volume control and mute with a tactile feel and vintage-modern design.  
@@ -7,7 +7,7 @@ Perfect for volume control and mute with a tactile feel and vintage-modern desig
 
 ## 🖼️ Gallery
 
-![Image View](./images/ecmiacro02_image.png)
+![Image View](./images/ecmacro02_image.png)
 
 ---
 
@@ -33,17 +33,17 @@ USB VID/PID assigned via [pid.codes](https://pid.codes/) (requested: VID 0x1209 
 ---
 
 ## 🔍 Hardware Resources
-![PCB Top View](./images/ecmiacro02_topview.png)
-- [Schematics (PDF)](./hardware/ecmiacro02_schematic.pdf)
-- [Gerber](./hardware/ecmiacro02_gerber.zip)
-- [BOM (CSV)](./hardware/ecmiacro02_bom.csv)
-- [CPL (CSV)](./hardware/ecmiacro02_positions.csv)
+![PCB Top View](./images/ecmacro02_topview.png)
+- [Schematics (PDF)](./hardware/ecmacro02_schematic.pdf)
+- [Gerber](./hardware/ecmacro02_gerber.zip)
+- [BOM (CSV)](./hardware/ecmacro02_bom.csv)
+- [CPL (CSV)](./hardware/ecmacro02_positions.csv)
 
 ---
 
 ## 🧩 Firmware
 
-- [Firmware (.ino)](./firmware/ecmiacro02/ecmiacro02.ino)
+- [Firmware (.ino)](./firmware/ecmacro02/ecmacro02.ino)
   - This project uses [CH55xduino](https://github.com/DeqingSun/ch55xduino).  
     See the firmware directory for source code and pin assignment.
 ---
@@ -74,7 +74,7 @@ Once approved, the device will identify as:
 
 ## 💬 Contact & Feedback
 
-Please use [GitHub Issues](https://github.com/QuadState/ECmiacro02/issues) for questions, bugs, or feedback.  
+Please use [GitHub Issues](https://github.com/QuadState/ecmacro02/issues) for questions, bugs, or feedback.  
 We welcome contributions, suggestions, and improvements!
 
 ---
