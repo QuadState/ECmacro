@@ -1,13 +1,13 @@
 /*
- * ECmini02 Firmware
+ * ECpad02 Firmware
  * 
  * Description:
- * This firmware is for ECmini02, a 2-key USB macro pad using electrostatic capacitive switches.
+ * This firmware is for ECpad02, a 2-key USB macro pad using electrostatic capacitive switches.
  * It sends Volume Up, Volume Down, and Mute commands via USB HID.
  * 
  * Author: QuadState
  * License: MIT License
- * Project URL: https://github.com/QuadState/ECmini02
+ * Project URL: https://github.com/QuadState/ECpad02
  * 
  * USB descriptor handling is based on CH55xduino's HID keyboard example by Deqing Sun:
  * https://github.com/DeqingSun/ch55xduino/tree/ch55xduino/ch55xduino/ch55x/libraries/Generic_Examples/examples/05.USB/HidKeyboard
