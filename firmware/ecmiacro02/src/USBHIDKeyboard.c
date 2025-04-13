@@ -1,17 +1,17 @@
 /*
- * ECpad02 USB HID Keyboard Firmware
+ * ECmiacro02 USB HID Keyboard Firmware
  * 
  * Based on: CH55xduino (https://github.com/DeqingSun/ch55xduino)
  * Original files: Generic_Examples/05.USB/HidKeyboard
  * 
  * Modified by: QuadState
- * Project URL: https://github.com/QuadState/ECpad02
+ * Project URL: https://github.com/QuadState/ECmiacro02
  * License: MIT (firmware)
  *
  * Description:
  * - USB HID implementation for CH552 microcontroller
  * - Supports basic 6KRO keyboard and consumer key operations
- * - Customized for ECpad02, a compact 2-key macro pad using electrostatic capacitive switches
+ * - Customized for ECmiacro02, a compact 2-key macro pad using electrostatic capacitive switches
  *
  * MIT License applies unless otherwise noted.
  */
