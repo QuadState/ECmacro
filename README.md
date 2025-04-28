@@ -1,7 +1,9 @@
-# ECmacro02
+# ECmacro
 
-A compact 2-key USB macro pad using electrostatic capacitive switches (Topre/NIZ style).  
-Perfect for volume control and mute with a tactile feel and vintage-modern design.  
+A compact USB macro pad using electrostatic capacitive switches (Topre/NIZ style).  
+| Model | Key Count | Typical Use |
+|-------|-----------|-------------|
+| **ECmacro 02** | 2 keys | Volume / Mute |
 
 ---
 
@@ -74,7 +76,7 @@ Once approved, the device will identify as:
 
 ## 💬 Contact & Feedback
 
-Please use [GitHub Issues](https://github.com/QuadState/ecmacro02/issues) for questions, bugs, or feedback.  
+Please use [GitHub Issues](https://github.com/QuadState/ecmacro/issues) for questions, bugs, or feedback.  
 We welcome contributions, suggestions, and improvements!
 
 ---

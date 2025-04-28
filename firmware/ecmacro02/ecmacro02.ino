@@ -7,7 +7,7 @@
  * 
  * Author: QuadState
  * License: MIT License
- * Project URL: https://github.com/QuadState/ECmacro02
+ * Project URL: https://github.com/QuadState/ECmacro
  * 
  * USB descriptor handling is based on CH55xduino's HID keyboard example by Deqing Sun:
  * https://github.com/DeqingSun/ch55xduino/tree/ch55xduino/ch55xduino/ch55x/libraries/Generic_Examples/examples/05.USB/HidKeyboard

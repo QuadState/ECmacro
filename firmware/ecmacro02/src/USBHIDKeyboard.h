@@ -5,7 +5,7 @@
  * Original files: Generic_Examples/05.USB/HidKeyboard
  * 
  * Modified by: QuadState
- * Project URL: https://github.com/QuadState/ECmacro02
+ * Project URL: https://github.com/QuadState/ECmacro
  * License: MIT (firmware)
  *
  * Description:

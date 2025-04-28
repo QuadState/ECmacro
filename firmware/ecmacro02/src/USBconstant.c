@@ -5,7 +5,7 @@
  * Original files: Generic_Examples/05.USB/HidKeyboard
  * 
  * Modified by: QuadState
- * Project URL: https://github.com/QuadState/ECmacro02
+ * Project URL: https://github.com/QuadState/ECmacro
  * License: MIT (firmware)
  *
  * Description:
@@ -140,25 +140,18 @@ __code uint8_t ReportDescriptor[] = {
 __code uint8_t LanguageDescriptor[] = {0x04, 0x03, 0x09,
                                        0x04}; // Language Descriptor
 __code uint16_t SerialDescriptor[] = {        // Serial String Descriptor
-    (((7 + 1) * 2) | (DTYPE_String << 8)),
-    'V',
-    'o',
-    'l',
-    'u',
-    'm',
-    'e',
+    (((2 + 1) * 2) | (DTYPE_String << 8)),
+    '0',
     '2'};
 __code uint16_t ProductDescriptor[] = {
     // Produce String Descriptor
-    (((8 + 1) * 2) | (DTYPE_String << 8)),
+    (((6 + 1) * 2) | (DTYPE_String << 8)),
     'E',
     'C',
     'm',
     'i',
     'n',
-    'i',
-    '0',
-    '2',
+    'i'
 };
 __code uint16_t ManufacturerDescriptor[] = {
     // SDCC is little endian
