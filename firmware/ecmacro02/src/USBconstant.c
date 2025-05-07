@@ -145,13 +145,14 @@ __code uint16_t SerialDescriptor[] = {        // Serial String Descriptor
     '2'};
 __code uint16_t ProductDescriptor[] = {
     // Produce String Descriptor
-    (((6 + 1) * 2) | (DTYPE_String << 8)),
+    (((7 + 1) * 2) | (DTYPE_String << 8)),
     'E',
     'C',
     'm',
-    'i',
-    'n',
-    'i'
+    'a',
+    'c',
+    'r',
+    'o'
 };
 __code uint16_t ManufacturerDescriptor[] = {
     // SDCC is little endian
