@@ -36,7 +36,7 @@ USB VID/PID assigned via [pid.codes](https://pid.codes/) (requested: VID 0x1209 
 
 ## 🔍 Hardware Resources
 ![PCB Top View](./images/ecmacro02_topview.png)  
-- [kicad ZIP](./hardware/ecmini02_kicad.zip)  
+- [kicad ZIP](./hardware/ecmacro02_kicad.zip)  
 
 ---
 
