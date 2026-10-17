@@ -1,0 +1,15 @@
+ECmacro — licenses by component
+
+Copyright (c) 2025–2026 QuadState
+
+This repository contains separately licensed components. The license texts are
+in LICENSES/.
+
+* Hardware designs (hardware/), images (images/) and documentation: CC BY 4.0;
+  see LICENSES/CC-BY-4.0.txt.
+  Standard KiCad library content keeps its original license and library exception
+  (https://www.kicad.org/libraries/license/).
+* CH552 firmware (firmware/ch552): MIT; see LICENSES/MIT.txt.
+
+Build tools and third-party dependencies (SDCC and its runtime library) keep
+their own licenses.

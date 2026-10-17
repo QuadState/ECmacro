@@ -1,0 +1,8 @@
+# KiCad local and temporary files (build outputs are ignored in each firmware folder)
+*.kicad_prl
+*.lck
+*-backups/
+_autosave-*
+\#auto_saved_files#
+fp-info-cache
+.history/
