@@ -1,0 +1,12 @@
+{
+  "name": "ECmacro 4H",
+  "vendorId": "0x1209",
+  "productId": "0xEC02",
+  "matrix": {
+    "rows": 1,
+    "cols": 4
+  },
+  "layouts": {
+    "keymap": [["0,0", "0,1", "0,2", "0,3"]]
+  }
+}

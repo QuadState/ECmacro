@@ -1,27 +1,23 @@
 <!-- Copyright (c) 2026 QuadState. SPDX-License-Identifier: CC-BY-4.0 -->
-# ECmacro 2V firmware (CH552)
+# CH552 firmware
 
-Firmware for the ECmacro 2V, two keys in a column.
-The schematic and PCB are in [hardware/2V](../../hardware/2V/).
-
-The CH552E runs from the 5 V of USB, on its internal 24 MHz clock.
-Each electrode is connected to GND through a 2 MOhm resistor, and the firmware
-decides whether a key is pressed from how long its electrode takes to discharge.
-
-| Key | GPIO | Action |
-|---|---|---|
-| SW1 (top) | P1.4 | Volume up |
-| SW2 (bottom) | P1.5 | Volume down |
-| SW1 and SW2 together | | Mute |
+Firmware for the ECmacro models with a CH552E.
+It charges each key's electrode, lets it discharge, and times the discharge
+with a 24 MHz timer to decide whether the key is pressed or released.
 
 ## Models
 
 What differs between models (number of keys, pins, initial key assignments)
-is in one file per model in [models/](models/) ([models/2V.h](models/2V.h) for
-the 2V). For another layout, add a file to models/: the Makefile builds every
-model it finds there. The common source supports two and four keys; behaviour
-that depends on the number of keys, such as muting with both keys of a
-two-key model, follows the number of keys.
+is in one file per model in [models/](models/). The Makefile builds every
+model there. The common source supports models with two and four keys.
+
+Assignments in [models/2V.h](models/2V.h):
+
+| Key | Pin | Action |
+|---|---|---|
+| SW1 | P1.4 | Volume up |
+| SW2 | P1.5 | Volume down |
+| SW1 and SW2 together | | Mute |
 
 ## Build
 
@@ -39,8 +35,8 @@ The BIN is kept within 13,312 bytes (0x3400), clear of the ISP area from 0x3800.
 
 The thresholds are set in `ec_defaults()` in [app/src/config.c](app/src/config.c).
 Every key starts with release 500 and press 600, in 24 MHz timer ticks.
-A key is pressed when its raw value is at or above press, and released when it
-is at or below release. Adjust them to your electrodes, within
+A key is pressed when its measured value is at or above press, and released
+when it is at or below release. Adjust them to your electrodes, within
 `0 < release < press < 65535`, and build again.
 
 ## Flashing

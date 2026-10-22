@@ -1,77 +1,39 @@
 # ECmacro
 
-A compact USB macro pad using electrostatic capacitive switches (Topre/NIZ style).  
-| Model | Key Count | Typical Use |
-|-------|-----------|-------------|
-| **ECmacro 2V** | 2 keys | Volume / Mute |
+ECmacro is a series of small USB keyboards (macro pads) that use Realforce capacitive switch parts.
+No special external components are needed to read the keys: just the microcontroller's GPIO pins and one resistor per key.
 
----
+## Models
 
-## 🖼️ Gallery
+<p>
+  <img src="images/ECmacro-2V.png" alt="ECmacro 2V" width="45%">
+  <img src="images/ECmacro-4H.png" alt="ECmacro 4H" width="45%">
+</p>
 
-![Image View](./images/ECmacro-2V.png)
+| | ECmacro 2V | ECmacro 4H |
+|---|---|---|
+| Features | Volume control; press both keys to mute | Key assignments adjustable in VIA |
+| Microcontroller | CH552E | Seeed Studio XIAO RP2040 |
+| Firmware | Custom ([firmware/ch552](firmware/ch552/)) | QMK ([firmware/rp2040](firmware/rp2040/qmk/keyboards/quadstate/ecmacro4h/)) |
+| Schematic and PCB | [hardware/2V](hardware/2V/) | [hardware/4H](hardware/4H/) |
+| USB VID:PID | `1209:EC02` ([pid.codes](https://pid.codes/1209/EC02/)) | A dedicated PID is being obtained; `1209:EC02` until then |
 
----
+## Contents
 
-## 📦 Features
+| Folder | Contents |
+|---|---|
+| [hardware/](hardware/) | Schematic and PCB for each model (KiCad 10) |
+| [firmware/ch552/](firmware/ch552/) | Firmware for the CH552E models; its README covers building and flashing |
+| [firmware/rp2040/](firmware/rp2040/) | QMK keyboard definition, VIA definition, build scripts and a udev rule for Linux |
 
-- Electrostatic capacitive switches (Topre/NIZ style)
-- USB HID device with CH552 microcontroller
-- Functions:
-  - Volume Up (Key 1)
-  - Volume Down (Key 2)
-  - Mute (Simultaneous press)
-- Open-source hardware and firmware
-- USB VID/PID from [pid.codes](https://pid.codes/1209/EC02/): `1209:EC02`
+Case design files are not included.
 
----
+## License
 
-## 🖥️ Supported OS
+- Schematics and PCBs (hardware/), images (images/) and documentation outside firmware/rp2040/: CC BY 4.0
+- CH552 firmware (firmware/ch552/): MIT
+- RP2040 firmware (firmware/rp2040/, including its readme): GPL-2.0-or-later (distributed firmware: GPLv3)
 
-- Windows 10/11
-- macOS (10.14+)
-- Linux (kernel with HID support)
+See [LICENSE](LICENSE) for details and [LICENSES/](LICENSES/) for the full texts.
 
----
-
-## 🔍 Hardware Resources
-
-- [KiCad project](./hardware/2V/)
-
----
-
-## 🧩 Firmware
-
-- [Firmware](./firmware/ch552/)
-  - Built with [SDCC](https://sdcc.sourceforge.net/) and GNU make.  
-    See the firmware directory for building, flashing and the pin assignment.
-
----
-
-## 📄 License
-
-This project uses dual licenses:
-
-- **Firmware and source code**: [MIT License](./LICENSES/MIT.txt)
-- **Schematics, PCB layout, and documents**: [CC BY 4.0](./LICENSES/CC-BY-4.0.txt)
-
-© 2025–2026 QuadState
-
----
-
-## 🆔 USB PID Registration
-
-This project has a **USB Product ID (PID)** from [pid.codes](https://pid.codes/):
-
-- **Vendor ID**: `0x1209` (pid.codes community VID)
-- **Product ID**: `0xEC02`
-- **PID.codes listing**: [1209/EC02](https://pid.codes/1209/EC02/)
-
----
-
-## 💬 Contact & Feedback
-
-Please use [GitHub Issues](https://github.com/QuadState/ECmacro/issues) for questions, bugs, or feedback.  
-We welcome contributions, suggestions, and improvements!
-
----
+Copyright (c) 2025–2026 QuadState

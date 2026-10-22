@@ -5,11 +5,16 @@ Copyright (c) 2025–2026 QuadState
 This repository contains separately licensed components. The license texts are
 in LICENSES/.
 
-* Hardware designs (hardware/), images (images/) and documentation: CC BY 4.0;
-  see LICENSES/CC-BY-4.0.txt.
+* Hardware designs (hardware/), images (images/) and documentation outside
+  firmware/rp2040: CC BY 4.0; see LICENSES/CC-BY-4.0.txt.
   Standard KiCad library content keeps its original license and library exception
   (https://www.kicad.org/libraries/license/).
 * CH552 firmware (firmware/ch552): MIT; see LICENSES/MIT.txt.
+* RP2040 QMK keyboard (including its PIO sensing code and readme), scripts, VIA
+  definition and udev rule (firmware/rp2040): GPL-2.0-or-later; see
+  LICENSES/GPL-2.0.txt.
+  The distributed RP2040 firmware is built with QMK and ChibiOS and is
+  therefore distributed under GPLv3; see LICENSES/GPL-3.0.txt.
 
-Build tools and third-party dependencies (SDCC and its runtime library) keep
-their own licenses.
+Build tools and third-party dependencies (QMK and its libraries, SDCC and its
+runtime library) keep their own licenses.
