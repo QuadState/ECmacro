@@ -8,20 +8,20 @@
 
 // The state machine runs at clk_sys, 125 MHz. A tick of the count is two
 // single-cycle instructions, 16 ns, so the longest count takes 262 us and a
-// whole measurement, with its 8 us charge, under 272 us. No result after
-// RC_DEADLINE_MS is a failure; 2 ms guarantees at least 1 ms of real time,
-// as the timer counts whole milliseconds.
+// whole measurement, with its 8 us charge, under 272 us. A measurement with
+// no result after RC_DEADLINE_MS has failed; 2 ms guarantees at least 1 ms
+// of real time, as the timer counts whole milliseconds.
 #define RC_DEADLINE_MS 2
 
 // The PIO program, assembled with pioasm:
 //
-//     pull block          ; x = the start count (RC_MAX_TICKS)
-//     mov x, osr
-//     set pins, 1         ; drive the GPIO high...
-//     set pindirs, 1
+//     pull block          ; load the start count (RC_MAX_TICKS) into osr
+//     mov x, osr          ; copy it to x
+//     set pins, 1         ; set the output level high first
+//     set pindirs, 1      ; then drive the GPIO: the charge starts
 //     set y, 31
 // charge:
-//     jmp y-- charge [31] ; ...for 32 x 32 cycles (8 us)
+//     jmp y-- charge [31] ; keep driving for 32 x 32 cycles (8 us)
 //     set pindirs, 0      ; release it, and count down while it reads high
 // measure:
 //     jmp pin high
@@ -29,8 +29,8 @@
 // high:
 //     jmp x-- measure     ; two instructions per tick
 // done:
-//     mov isr, x          ; push what is left (~0 if the count ran out)
-//     push noblock
+//     mov isr, x          ; copy what is left (~0 if the count ran out)
+//     push noblock        ; send it to the CPU (RX FIFO)
 // stopped:
 //     jmp stopped         ; one result per start
 static const uint16_t rc_program_instructions[] = {
@@ -78,8 +78,8 @@ void rc_pio_start(pin_t gpio) {
     sm_config_set_jmp_pin(&config, pin);
     pio_sm_init(pio0, state_machine, program_offset, &config);
     pio_sm_set_consecutive_pindirs(pio0, state_machine, pin, 1, false);
-    // Hand the GPIO to PIO0: a Schmitt-trigger input with no pulls, and a
-    // weak (2 mA), slow output for the charge.
+    // Hand the GPIO to PIO0: a Schmitt-trigger input with no pulls, and an
+    // output with 2 mA drive and a slow slew rate for the charge.
     palSetLineMode(pin, PAL_MODE_ALTERNATE_PIO0 | PAL_RP_PAD_DRIVE2);
     pio_sm_put(pio0, state_machine, RC_MAX_TICKS);
     started = timer_read32();
@@ -99,8 +99,9 @@ bool rc_pio_poll(uint16_t *ticks) {
 
     if (!pio_sm_is_rx_fifo_empty(pio0, state_machine)) {
         // The state machine pushes what is left of the count. RC_MAX_TICKS
-        // left means the GPIO read low immediately (it could not be charged);
-        // ~0 means it never read low. Both are failures, reported as 0 ticks.
+        // left means the GPIO read low immediately (it could not be
+        // charged); ~0 means it never read low. Both are failures,
+        // reported as 0 ticks.
         const uint32_t left = pio_sm_get(pio0, state_machine);
         *ticks              = left < RC_MAX_TICKS ? RC_MAX_TICKS - left : 0;
     } else if (expired) {

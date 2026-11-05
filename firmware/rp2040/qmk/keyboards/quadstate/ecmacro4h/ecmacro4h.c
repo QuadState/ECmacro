@@ -10,13 +10,13 @@
 //
 // The baselines track slow drift such as temperature. Once a second, each
 // baseline is compared with the average of that second's released readings
-// (those at or below the release threshold): a lower average replaces the
-// baseline, a higher one raises it by a single tick. A press can only raise
-// the readings, so the baseline follows a drop immediately but a rise only
-// slowly. The drop is taken only when most of the second's readings were
-// released readings; while a key is held, the few readings below the
-// release threshold are noise, and following them could leave the key
-// stuck pressed.
+// (those at or below the release threshold). A press can only raise the
+// readings, so a lower average replaces the baseline in one step, while a
+// higher one raises it by a single tick.
+//
+// The baseline is lowered only when released readings make up more than
+// half of that second's readings: while a key is held, its few released
+// readings are noise, and following them could leave the key stuck pressed.
 
 #include "ecmacro4h.h"
 #include "rc_pio.h"
@@ -29,8 +29,8 @@ STATIC_ASSERT(EC_RELEASE_TICKS > 0 && EC_RELEASE_TICKS < EC_PRESS_TICKS, "EC_REL
 
 static uint16_t baseline[EC_KEY_COUNT];
 // Readings in the current second: how many, how many of them were released
-// readings, and the sum of those. Capped at UINT16_MAX readings so that the
-// sum fits in 32 bits.
+// readings, and the sum of those. Capped at UINT16_MAX readings, so that
+// the counts cannot overflow and the sum fits in 32 bits.
 static uint16_t reading_count[EC_KEY_COUNT];
 static uint16_t released_count[EC_KEY_COUNT];
 static uint32_t released_sum[EC_KEY_COUNT];
@@ -44,8 +44,8 @@ uint16_t ec_release_threshold(uint8_t key) {
     return baseline[key] + EC_RELEASE_TICKS;
 }
 
-// Once a second: move each baseline toward its released-reading average (see
-// the top of this file) and restart the counts.
+// Once a second: move each baseline toward its released-reading average
+// (see the top of this file) and restart the counts.
 static void update_baselines(void) {
     for (uint8_t key = 0; key < EC_KEY_COUNT; key++) {
         if (released_count[key] != 0) {
@@ -82,7 +82,7 @@ void ec_baseline_sample(uint8_t key, uint16_t ticks) {
 void keyboard_pre_init_kb(void) {
     // Keep the XIAO RP2040 LEDs dark. The user LED (GP16, GP17, GP25) is
     // active low and can glow faintly while its pins are left as inputs;
-    // the NeoPixel is powered from GP11.
+    // driving GP11 low cuts the NeoPixel's power.
     const pin_t user_led[] = {GP16, GP17, GP25};
     for (uint8_t i = 0; i < ARRAY_SIZE(user_led); i++) {
         gpio_set_pin_output(user_led[i]);

@@ -4,7 +4,7 @@
 
 ![ECmacro 4H PCB](https://i.imgur.com/aeRcTcc.jpeg)
 
-A four-key macropad with electrostatic capacitive switches. Each key is sensed by the RP2040's PIO through a single resistor.
+A four-key macropad with electrostatic capacitive switches. The RP2040's PIO charges each key's electrode and times its discharge through a single resistor to ground.
 
 * Keyboard Maintainer: [QuadState](https://github.com/QuadState)
 * Hardware Supported: ECmacro 4H PCB with a Seeed Studio XIAO RP2040

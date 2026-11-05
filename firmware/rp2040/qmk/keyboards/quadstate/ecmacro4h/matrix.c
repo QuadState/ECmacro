@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 // Lite custom matrix with a single row. The keys are measured one at a time
-// (rc_pio.c): each scan checks whether the current measurement has finished,
-// updates that key and starts the next one.
+// (rc_pio.c): each scan checks whether the current measurement has
+// finished, updates that key and starts the next one.
 
 #include "ecmacro4h.h"
 #include "rc_pio.h"

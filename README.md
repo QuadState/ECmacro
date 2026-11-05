@@ -16,7 +16,6 @@ No special external components are needed to read the keys: just the microcontro
 | Microcontroller | CH552E | Seeed Studio XIAO RP2040 |
 | Firmware | Custom ([firmware/ch552](firmware/ch552/)) | QMK ([firmware/rp2040](firmware/rp2040/qmk/keyboards/quadstate/ecmacro4h/)) |
 | Schematic and PCB | [hardware/2V](hardware/2V/) | [hardware/4H](hardware/4H/) |
-| USB VID:PID | `1209:EC02` ([pid.codes](https://pid.codes/1209/EC02/)) | A dedicated PID is being obtained; `1209:EC02` until then |
 
 ## Contents
 
@@ -27,6 +26,10 @@ No special external components are needed to read the keys: just the microcontro
 | [firmware/rp2040/](firmware/rp2040/) | QMK keyboard definition, VIA definition, build scripts and a udev rule for Linux |
 
 Case design files are not included.
+
+## USB ID
+
+All models use the USB VID:PID `1209:EC02` ([pid.codes](https://pid.codes/1209/EC02/)).
 
 ## License
 

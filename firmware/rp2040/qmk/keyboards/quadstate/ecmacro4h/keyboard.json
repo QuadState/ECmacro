@@ -1,6 +1,6 @@
 {
     "manufacturer": "QuadState",
-    "keyboard_name": "ECmacro 4H",
+    "keyboard_name": "ECmacro",
     "maintainer": "QuadState",
     "bootloader": "rp2040",
     "features": {
