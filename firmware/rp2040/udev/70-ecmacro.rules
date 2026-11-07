@@ -1,4 +1,4 @@
 # Copyright (c) 2026 QuadState
 # SPDX-License-Identifier: GPL-2.0-or-later
-# Lets the logged-in user open ECmacro in VIA (WebHID) on Linux.
+# Lets the logged-in user open ECmacro in Remap or VIA (WebHID) on Linux.
 SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="ec02", TAG+="uaccess"

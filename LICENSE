@@ -14,7 +14,9 @@ in LICENSES/.
   definition and udev rule (firmware/rp2040): GPL-2.0-or-later; see
   LICENSES/GPL-2.0.txt.
   The distributed RP2040 firmware is built with QMK and ChibiOS and is
-  therefore distributed under GPLv3; see LICENSES/GPL-3.0.txt.
+  therefore distributed under GPLv3; see LICENSES/GPL-3.0.txt. Its complete
+  source code, how to build and install it, and its third-party notices are
+  given in firmware/rp2040/THIRD-PARTY-NOTICES.txt.
 
 Build tools and third-party dependencies (QMK and its libraries, SDCC and its
 runtime library) keep their own licenses.
